@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Auto Play Audio</title>
+</head>
+<body>
+  <audio id="audio" src="./hello.mp3" autoplay></audio>
+
+  <script>
+    const audio = document.getElementById('audio');
+
+    // Try to play audio programmatically (some browsers require user interaction)
+    audio.play().catch(() => {
+      console.log("Autoplay blocked. Try clicking anywhere to play.");
+      document.body.addEventListener('click', () => audio.play());
+    });
+  </script>
+</body>
+</html>
